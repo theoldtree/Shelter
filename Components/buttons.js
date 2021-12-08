@@ -1,10 +1,13 @@
 import {TouchableOpacity, StyleSheet, Text, View} from 'react-native';
-import React from 'react';
+import React, {useState} from 'react';
 
 export default function TransLargeBlueButton({onPress,text}){
+
     return(
         <TouchableOpacity
-            onPress = {onPress}
+            onPress = {
+                onPress
+            }
         >
             <View style = {Styles.TLBButton}>
                 <Text style={Styles.TLBButtonText}>{text}</Text>

@@ -1,8 +1,15 @@
 import React from 'react';
-import { StyleSheet, Text, View, Dimensions } from 'react-native';
+import { StyleSheet, Text, View, Dimensions,TouchableOpacity } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import TransLargeBlueButton from '../../Components/buttons'
 
-export default function Signin_Complete() {
+export default function Signin_Complete({navigation}) {
+
+    const buttonHandler = () => {
+        navigation.navigate('main')
+    }
+    
   return (
     <View style={styles.container}>
       <View>
@@ -14,7 +21,10 @@ export default function Signin_Complete() {
         </Text>
       </View>
       <View style={styles.buttonContainer}>
-        <TransLargeBlueButton text={"확인"} />
+          <TransLargeBlueButton
+            text={"확인"}
+            onPress={buttonHandler}
+          />
       </View>
     </View>
   );
@@ -44,5 +54,24 @@ const styles = StyleSheet.create({
   buttonContainer: {
     alignItems: 'center',
     marginTop: Dimensions.get("window").height*0.55
+  },
+  TLBButton:{
+      width: 292,
+      height: 48,
+      borderWidth: 1,
+      paddingTop: 20,
+      paddingRight: 28,
+      paddingBottom: 20,
+      paddingLeft: 28,
+      borderRadius: 24,
+      borderStyle: "solid",
+      borderColor: "rgb(0, 189, 211)",
+      justifyContent:'center',
+      alignItems: 'center',
+  },
+  TLBButtonText:{
+      color: "rgb(0, 189, 211)",
+      fontSize: 14,
+      fontWeight: "400",
   }
 });

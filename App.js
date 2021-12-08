@@ -1,15 +1,22 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View, Dimensions } from 'react-native';
-import TransLargeBlueButton from './Components/buttons'
 import Signin_Complete from './screens/signin/signin_complete';
 import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createStackNavigator } from '@react-navigation/stack';
+import Main from './screens/main';
 
 export default function App() {
+	const Stack = createStackNavigator();
+
   return (
-    <View style={styles.container}>
-      <Signin_Complete/>
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="shelter" options={{headerShown: false}} component={Signin_Complete}/>
+        <Stack.Screen name="main" component={Main}/>
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
