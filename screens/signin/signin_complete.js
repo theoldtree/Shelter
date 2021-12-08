@@ -1,14 +1,21 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View, Dimensions } from 'react-native';
-import TransLargeBlueButton from './Components/buttons'
-import Signin_Complete from './screens/signin/signin_complete';
-import { NavigationContainer } from '@react-navigation/native';
+import TransLargeBlueButton from '../../Components/buttons'
 
-export default function App() {
+export default function Signin_Complete() {
   return (
     <View style={styles.container}>
-      <Signin_Complete/>
+      <View>
+        <Text style={styles.HeaderText}   >
+          쉘터를 사용할 {'\n'}준비가 완료되었습니다
+        </Text>
+        <Text style={styles.HeaderText2}   >
+          메인 화면으로 이동합니다
+        </Text>
+      </View>
+      <View style={styles.buttonContainer}>
+        <TransLargeBlueButton text={"확인"} />
+      </View>
     </View>
   );
 }
