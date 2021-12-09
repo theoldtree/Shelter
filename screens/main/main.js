@@ -25,20 +25,26 @@ export default function Main() {
     return (
         <KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : "height"} style={{ height: Dimensions.get("window").height }}>
             <ScrollView bounces={false} showsVerticalScrollIndicator={false} style={{ height: Dimensions.get("window").height }}>
+                <TouchableOpacity style={styles.drawer}>
+                    <Svg style={{ height: 12, width: 20 }} viewBox="0 0 20 12">
+                        <Path fill={"black"} d="M0 10V12H20V10H0ZM0 5V7H20V5H0ZM0 0V2H20V0H0Z" />
+                    </Svg>
+                </TouchableOpacity>
+
                 {
                     {
                         [BEFORE_SCREEN]: (
                             <View style={styles.header}>
                                 <TouchableOpacity
-                                    onPress={()=>setScreen(1)}
+                                    onPress={() => setScreen(1)}
                                 >
                                     <View style={{ flexDirection: "row", alignItems: "center" }}>
                                         <Text style={styles.headerfont1}>
                                             {currentDate}
                                         </Text>
-									<Svg style={{height: 8, width: 12}} viewBox = "0 0 12 8">
-										<Path fill = {"black"}     d = "M1.41 0L6 4.58L10.59 0L12 1.41L6 7.41L0 1.41L1.41 0Z"/>
-									</Svg>
+                                        <Svg style={{ height: 8, width: 12 }} viewBox="0 0 12 8">
+                                            <Path fill={"black"} d="M1.41 0L6 4.58L10.59 0L12 1.41L6 7.41L0 1.41L1.41 0Z" />
+                                        </Svg>
                                     </View>
                                 </TouchableOpacity>
                                 <Text style={styles.headerfont2}>
@@ -53,7 +59,7 @@ export default function Main() {
                             <Text>
                                 {currentDate}
                                 <Button
-                                    onPress={()=>setScreen(0)}
+                                    onPress={() => setScreen(0)}
                                 />
                             </Text>
                         ),
@@ -71,10 +77,14 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center'
     },
+    drawer:{
+        margin: 15,
+        marginTop: 25
+    },
     header: {
         position: "absolute",
         left: 24,
-        top: 112,
+        top: 90,
     },
     headerfont1: {
         marginRight: 8,
@@ -82,7 +92,7 @@ const styles = StyleSheet.create({
         fontSize: 24,
         fontWeight: "700",
     },
-    headerfont2:{
+    headerfont2: {
         color: "rgba(0, 0, 0, 0.95)",
         fontSize: 24,
         marginTop: 70,
