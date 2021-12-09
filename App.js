@@ -5,16 +5,50 @@ import Signin_Complete from './screens/signin/signin_complete';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
-import Main from './screens/main';
+import Main from './screens/main/main';
+import MyPage from './screens/mypage/mypage';
+import Reserve from './screens/reserve/reserve';
+import Locate from './screens/location/mydrug';
+
+const Stack = createStackNavigator();
+const Tab = createBottomTabNavigator();
 
 export default function App() {
-	const Stack = createStackNavigator();
-
+  const  TabMain = () => {
+    return(
+        <Tab.Navigator
+          tabBarOptions={{
+            showLabel: false,
+            iconStyle: { width: "100%", height: "100%" },
+          }}>
+          <Tab.Screen
+            name="main"
+            component={Main}
+            options={{ tabBarVisible: false }}
+          />
+          <Tab.Screen
+            name="location"
+            component={Locate}
+            options={{ tabBarVisible: false }}
+          />
+          <Tab.Screen
+            name="reservation"
+            component={Reserve}
+            options={{ tabBarVisible: false }}
+          />
+          <Tab.Screen
+            name="mypage"
+            component={MyPage}
+            options={{ tabBarVisible: false }}
+          />
+        </Tab.Navigator>
+    );
+}
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="shelter" options={{headerShown: false}} component={Signin_Complete}/>
-        <Stack.Screen name="main" component={Main}/>
+        <Stack.Screen name="shelter" options={{ headerShown: false }} component={Signin_Complete} />
+        <Stack.Screen name="main" options={{ headerShown: false }} component={Main} />
       </Stack.Navigator>
     </NavigationContainer>
   );
@@ -43,6 +77,6 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     alignItems: 'center',
-    marginTop: Dimensions.get("window").height*0.55
+    marginTop: Dimensions.get("window").height * 0.55
   }
 });

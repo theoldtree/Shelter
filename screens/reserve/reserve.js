@@ -1,11 +1,11 @@
 import React from 'react';
 import { StyleSheet, Text, View, Dimensions } from 'react-native';
 
-export default function Main(){
+export default function Reserve(){
     return(
         <View style = {styles.container}>
             <Text>
-                main
+                reserve
             </Text>
         </View>
     );
