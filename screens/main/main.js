@@ -183,11 +183,10 @@ const styles = StyleSheet.create({
     },
     drawer: {
         margin: 15,
-        marginTop: 25
+        marginTop: 50
     },
     header: {
         marginLeft: 24,
-        margintop: 90,
     },
     headerfont1: {
         marginRight: 8,

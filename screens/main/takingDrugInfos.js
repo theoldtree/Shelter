@@ -91,7 +91,7 @@ const styles = StyleSheet.create({
         shadowColor: "rgba(0, 0, 0, 0.2)",
         shadowRadius: 2,
         width: 64,
-        height: 72,
+        height: 80,
         borderRadius: 4,
         margin: 4,
         justifyContent: "center",
