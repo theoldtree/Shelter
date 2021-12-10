@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View, Dimensions, KeyboardAvoidingView, ScrollView, Platform, Button, TouchableOpacity } from 'react-native';
 import { Svg, Path } from "react-native-svg";
+import Calendar from '../calendar/calendar';
 import TakingDrugInfos from './takingDrugInfos';
 
 const BEFORE_SCREEN = 0;
@@ -61,7 +62,9 @@ export default function Main() {
             time: "21:30~23:30"
         })
     }
-
+    const screenHandler = () => {
+        setScreen(0)
+    }
     useEffect(() => {
         var date = new Date().getDate(); //Current Date
         var month = new Date().getMonth() + 1; //Current Month
@@ -101,7 +104,7 @@ export default function Main() {
                                         {userInfo}님,
                                     </Text>
                                     <Text style={styles.headerfont3}>
-                                        오늘도 건강관리 잊지마세요! {drugInfos.drugSort.general}
+                                        오늘도 건강관리 잊지마세요! 
                                     </Text>
                                 </View>
                                 <View style={styles.buttonContainer}>
@@ -161,12 +164,7 @@ export default function Main() {
                             </View>
                         ),
                         [AFTER_SCREEN]: (
-                            <Text>
-                                {currentDate}
-                                <Button
-                                    onPress={() => setScreen(0)}
-                                />
-                            </Text>
+                            <Calendar onPress={screenHandler}/>
                         ),
                     }[screen]
                 }
@@ -207,23 +205,22 @@ const styles = StyleSheet.create({
     headerfont3: {
         color: "rgb(0, 0, 0)",
         fontSize: 16,
+        marginTop: 7,
         fontWeight: "400",
         textAlign: 'left',
     },
     buttonContainer: {
-        flex: 1,
         flexDirection: "row",
-        justifyContent: "space-aruond",
+        justifyContent: "space-evenly",
         marginTop: 45
     },
     buttonView: {
         width: 56,
-        height: 50,
+        height: 32,
         margin: 15,
         borderRadius: 16,
         alignItems: "center",
         justifyContent: "center",
-        flex: 1
     },
     buttonText: {
         fontSize: 16,

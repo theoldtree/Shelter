@@ -1,4 +1,3 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View, Dimensions } from 'react-native';
 import Signin_Complete from './screens/signin/signin_complete';
@@ -7,7 +6,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
 import Main from './screens/main/main';
 import MyPage from './screens/mypage/mypage';
-import Reserve from './screens/reserve/reserve';
+import Reserve from './screens/calendar/calendar';
 import Locate from './screens/location/mydrug';
 
 const Stack = createStackNavigator();
