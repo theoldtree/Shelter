@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View, Dimensions, KeyboardAvoidingView, ScrollView, Platform, Button, TouchableOpacity } from 'react-native';
 import { Svg, Path } from "react-native-svg";
-import Calendar from '../calendar/calendar';
+import DaySelctor from '../calendar/calendar';
 import TakingDrugInfos from './takingDrugInfos';
 
 const BEFORE_SCREEN = 0;
@@ -23,7 +23,7 @@ export default function Main() {
         lunch: 0,
         dinner: 0,
         midnight: 0,
-        time: "06:30~08:30"
+        time: "06:30 ~ 08:30"
     });
 
     const buttonHandler1 = () => {
@@ -32,7 +32,7 @@ export default function Main() {
             lunch: 0,
             dinner: 0,
             midnight: 0,
-            time: "06:30~08:30"
+            time: "06:30 ~ 08:30"
         })
     }
     const buttonHandler2 = () => {
@@ -41,7 +41,7 @@ export default function Main() {
             lunch: 1,
             dinner: 0,
             midnight: 0,
-            time: "11:30~13:30"
+            time: "11:30 ~ 13:30"
         })
     }
     const buttonHandler3 = () => {
@@ -50,7 +50,7 @@ export default function Main() {
             lunch: 0,
             dinner: 1,
             midnight: 0,
-            time: "17:30~19:30"
+            time: "17:30 ~ 19:30"
         })
     }
     const buttonHandler4 = () => {
@@ -59,7 +59,7 @@ export default function Main() {
             lunch: 0,
             dinner: 0,
             midnight: 1,
-            time: "21:30~23:30"
+            time: "21:30 ~ 23:30"
         })
     }
     const screenHandler = () => {
@@ -164,7 +164,7 @@ export default function Main() {
                             </View>
                         ),
                         [AFTER_SCREEN]: (
-                            <Calendar onPress={screenHandler}/>
+                            <DaySelctor onPress={screenHandler}/>
                         ),
                     }[screen]
                 }
@@ -187,6 +187,7 @@ const styles = StyleSheet.create({
     },
     header: {
         marginLeft: 24,
+        marginTop: 7,
     },
     headerfont1: {
         marginRight: 8,
@@ -197,7 +198,7 @@ const styles = StyleSheet.create({
     headerfont2: {
         color: "rgba(0, 0, 0, 0.95)",
         fontSize: 24,
-        marginTop: 70,
+        marginTop: 105,
         fontWeight: "700",
         textAlign: 'left',
     },
