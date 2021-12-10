@@ -198,7 +198,7 @@ const styles = StyleSheet.create({
     headerfont2: {
         color: "rgba(0, 0, 0, 0.95)",
         fontSize: 24,
-        marginTop: 105,
+        marginTop: 155,
         fontWeight: "700",
         textAlign: 'left',
     },

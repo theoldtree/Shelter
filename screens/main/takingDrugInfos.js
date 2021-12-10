@@ -73,23 +73,15 @@ const styles = StyleSheet.create({
         height: 55,
         backgroundColor: "rgb(255, 255, 255)",
         borderRadius: 8,
-        shadowOffset: {
-            width: 0,
-            height: 1
-        },
-        shadowColor: "rgba(0, 0, 0, 0.25)",
-        shadowRadius: 2,
+        borderWidth: 1,
+        borderColor: "#ececec",
         alignItems: "center",
         flexDirection: "row"
     },
     labelView: {
         backgroundColor: "rgb(38, 199, 217)",
-        shadowOffset: {
-            width: 0,
-            height: 1
-        },
-        shadowColor: "rgba(0, 0, 0, 0.2)",
-        shadowRadius: 2,
+        borderWidth: 1,
+        borderColor: "#ececec",
         width: 64,
         height: 80,
         borderRadius: 4,
@@ -115,12 +107,8 @@ const styles = StyleSheet.create({
         height: 220,
         backgroundColor: "rgb(255, 255, 255)",
         borderRadius: 8,
-        shadowOffset: {
-            width: 1,
-            height: 1
-        },
-        shadowColor: "rgba(0, 0, 0, 0.25)",
-        shadowRadius: 2,
+        borderWidth: 1,
+        borderColor: "#ececec",
         flexDirection: "column",
         marginTop: 1,
         justifyContent: "center"
