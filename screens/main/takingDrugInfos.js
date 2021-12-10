@@ -42,9 +42,9 @@ export default function TakingDrugInfos({ time, drugInfos }) {
                 </View>
                 <View style={styles.downInnerContainer}>
                     {
-                        drugInfos.drugList.map((drug) => {
+                        drugInfos.drugList.map((drug,index) => {
                             return (
-                                <View key={drug.key} style={styles.drugView}>
+                                <View key={index.key} style={styles.drugView}>
                                     <Text style={styles.drugFont}>
                                         {drug}
                                     </Text>
