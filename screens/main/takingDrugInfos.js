@@ -46,7 +46,7 @@ export default function TakingDrugInfos({ time, drugInfos }) {
                             return (
                                 <View key={index.key} style={styles.drugView}>
                                     <Text style={styles.drugFont}>
-                                        {drug}
+                                        {drug.name}
                                     </Text>
                                     <Svg style={{ height: 14, width: 18, paddingRight: 17 }} viewBox="0 0 18 14">
                                         <Path fill={"#8BA629"} d="M5.7274 10.8412L1.43185 6.5456L0 7.97745L5.7274 13.7048L18.0004 1.43185L16.5686 0L5.7274 10.8412Z" />

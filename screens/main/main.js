@@ -3,6 +3,9 @@ import { StyleSheet, Text, View, Dimensions, KeyboardAvoidingView, ScrollView, P
 import { Svg, Path } from "react-native-svg";
 import DaySelctor from '../calendar/calendar';
 import TakingDrugInfos from './takingDrugInfos';
+import Myshelter from './myShelter';
+import MyPage from '../mypage/mypage';
+import TakingDrugLists from './takingDrugLists';
 
 const BEFORE_SCREEN = 0;
 const AFTER_SCREEN = 1;
@@ -16,7 +19,11 @@ export default function Main() {
     const [userInfo, setUserInfo] = useState('박밍꾸');
     const [drugInfos, setDrugInfos] = useState({
         drugSort:{master:2,healthCare:2,general:0,other:0},
-        drugList:["락토핏 유산균","처방약","아이클리어","코자엑스큐"],
+        drugList:[
+            {name:"락토핏 유산균",company:"한국오가논",drugSort:0},
+            {name:"처방약",company:"처방약",drugSort:1},
+            {name:"아이클리어 2.0",company:"종근당건강",drugSort:0},
+            {name:"코자엑스큐",company:"오가논",drugSort:1}],
     });
     const [buttonInfos, setButtonInfos] = useState({
         breakfast: 1,
@@ -169,6 +176,8 @@ export default function Main() {
                     }[screen]
                 }
                 <TakingDrugInfos time={buttonInfos.time} drugInfos={drugInfos}/>
+                <Myshelter/>
+                <TakingDrugLists/>
             </ScrollView>
         </KeyboardAvoidingView>
     );
