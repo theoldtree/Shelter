@@ -1,17 +1,18 @@
-
+import { useNavigation } from '@react-navigation/native';
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, Text, View, Dimensions, KeyboardAvoidingView, ScrollView, Platform, TouchableOpacity, Button } from 'react-native';
+import { StyleSheet, Text, View, Dimensions, KeyboardAvoidingView, ScrollView, Platform, TouchableOpacity } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 
-export default function AddDrug({navigation}) {
+export default function FinalStep() {
 
+    const navigation = useNavigation();
     return (
         <KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : "height"} style={{ height: Dimensions.get("window").height }}>
-            <ScrollView bounces={false} showsVerticalScrollIndicator={false} style={{ height: Dimensions.get("window").height, backgroundColor: "white" }}>
+            <ScrollView bounces={false} showsVerticalScrollIndicator={false} style={{ height: Dimensions.get("window").height, backgroundColor:"white" }}>
                 <View style={{ flexDirection: "row", alignItems: "center", marginTop: 20 }}>
                     <TouchableOpacity
-                        onPress={() => { navigation.navigate("main") }}
-                        style={{ marginLeft: 15 }}
+                        onPress={() => { navigation.goBack() }}
+                        style={{ marginLeft: 15}}
                     >
                         <MaterialIcons name="keyboard-arrow-left" size={28} color="black" />
                     </TouchableOpacity>
@@ -19,8 +20,6 @@ export default function AddDrug({navigation}) {
                         약 추가하기
                     </Text>
                 </View>
-                <Text>복용하는 약이</Text>
-                <Text style={{color:"#26c7d9"}}>처방약인가요<Text style={{color:"black"}}>?</Text></Text>
             </ScrollView>
         </KeyboardAvoidingView>
     );

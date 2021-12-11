@@ -11,6 +11,8 @@ import AddDrug from './screens/addDrug/addDrug';
 import Confirm from './screens/mypage/confirm';
 import StateAlram from './screens/mypage/stateAlarm';
 import TimeLine from './screens/mypage/timeLine';
+import NextStep from './screens/addDrug/nextStep';
+import SearchResult from './screens/addDrug/searchResult';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -51,10 +53,12 @@ export default function App() {
       <Stack.Navigator>
         <Stack.Screen name="shelter" options={{ headerShown: false }} component={Signin_Complete} />
         <Stack.Screen name="main" options={{ headerShown: false }} component={Main} />
-        <Stack.Screen name="약추가하기" component={AddDrug} />
-        <Stack.Screen name="공지사항" component={Confirm} />
-        <Stack.Screen name="상태알림" component={StateAlram} />
-        <Stack.Screen name="타임라인" component={TimeLine} />
+        <Stack.Screen name="약추가하기" options={{ headerShown: false }} component={AddDrug} />
+        <Stack.Screen name="다음단계" options={{ headerShown: false }} component={NextStep} />
+        <Stack.Screen name="마지막단계" options={{ headerShown: false }} component={SearchResult} />
+        <Stack.Screen name="공지사항" options={{ headerShown: false }} component={Confirm} />
+        <Stack.Screen name="상태알림" options={{ headerShown: false }} component={StateAlram} />
+        <Stack.Screen name="타임라인" options={{ headerShown: false }} component={TimeLine} />
       </Stack.Navigator>
     </NavigationContainer>
   );

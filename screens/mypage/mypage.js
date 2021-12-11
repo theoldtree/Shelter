@@ -1,12 +1,15 @@
 import React from 'react';
 import { StyleSheet, Text, View, Dimensions, Image, TouchableOpacity } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
+import { useNavigation } from '@react-navigation/native';
 
-export default function MyPage({ navigation }) {
+export default function MyPage() {
 
-    const TimlinePageHandler = () => {navigation.navigate("타임라인")}
-    const StateAlarmPageHandler = () => {navigation.navigate("상태알림")}
-    const ConfirmPageHandler = () => {navigation.navigate("공지사항")}
+    const navigation = useNavigation();
+    
+    const TimlinePageHandler = () => { navigation.navigate("타임라인") }
+    const StateAlarmPageHandler = () => { navigation.navigate("상태알림") }
+    const ConfirmPageHandler = () => { navigation.navigate("공지사항") }
 
     const PageHandler = ({ text, onPress }) => {
         return (

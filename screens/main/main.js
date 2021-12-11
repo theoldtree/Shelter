@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, Text, View, Dimensions, KeyboardAvoidingView, ScrollView, Platform, Button, TouchableOpacity,Image } from 'react-native';
+import { StyleSheet, Text, View, Dimensions, KeyboardAvoidingView, ScrollView, Platform, Button, TouchableOpacity, Image } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { Feather } from '@expo/vector-icons'; 
+import { Feather } from '@expo/vector-icons';
 import { Svg, Path } from "react-native-svg";
 import DaySelctor from '../calendar/calendar';
 import TakingDrugInfos from './takingDrugInfos';
@@ -15,18 +15,18 @@ const AFTER_SCREEN = 1;
 const HEIGHT = Dimensions.get("window").height;
 const WIDTH = Dimensions.get("window").height;
 
-export default function Main({navigation}) {
+export default function Main({ navigation }) {
 
     const [screen, setScreen] = useState(0);
     const [currentDate, setCurrentDate] = useState('');
     const [userInfo, setUserInfo] = useState('박밍꾸');
     const [drugInfos, setDrugInfos] = useState({
-        drugSort:{master:2,healthCare:2,general:0,other:0},
-        drugList:[
-            {name:"코자엑스큐",company:"한국오가논",drugSort:0},
-            {name:"처방약",company:"약국",drugSort:0},
-            {name:"아이클리어 2.0",company:"종근당건강",drugSort:1},
-            {name:"락토핏 유산균",company:"종근당건강",drugSort:1}],
+        drugSort: { master: 2, healthCare: 2, general: 0, other: 0 },
+        drugList: [
+            { name: "코자엑스큐", company: "한국오가논", drugSort: 0 },
+            { name: "처방약", company: "약국", drugSort: 0 },
+            { name: "아이클리어 2.0", company: "종근당건강", drugSort: 1 },
+            { name: "락토핏 유산균", company: "종근당건강", drugSort: 1 }],
     });
     const [buttonInfos, setButtonInfos] = useState({
         breakfast: 1,
@@ -75,7 +75,7 @@ export default function Main({navigation}) {
     const screenHandler = () => {
         setScreen(0)
     }
-    
+
     useEffect(() => {
         var date = new Date().getDate(); //Current Date
         var month = new Date().getMonth() + 1; //Current Month
@@ -115,7 +115,7 @@ export default function Main({navigation}) {
                                         {userInfo}님,
                                     </Text>
                                     <Text style={styles.headerfont3}>
-                                        오늘도 건강관리 잊지마세요! 
+                                        오늘도 건강관리 잊지마세요!
                                     </Text>
                                 </View>
                                 <View style={styles.buttonContainer}>
@@ -175,26 +175,26 @@ export default function Main({navigation}) {
                             </View>
                         ),
                         [AFTER_SCREEN]: (
-                            <DaySelctor onPress={screenHandler}/>
+                            <DaySelctor onPress={screenHandler} />
                         ),
                     }[screen]
                 }
-                <TakingDrugInfos time={buttonInfos.time} drugInfos={drugInfos}/>
-                <Myshelter/>
-                <TakingDrugLists drugInfos={drugInfos.drugList}/>
+                <TakingDrugInfos time={buttonInfos.time} drugInfos={drugInfos} />
+                <Myshelter />
+                <TakingDrugLists drugInfos={drugInfos.drugList} />
                 <View style={{ flexDirection: "row", alignItems: "center", width: 360, borderTopColor: "#ececec", borderTopWidth: 1 }}>
                     <Image
                         source={require('../../assets/addDrugImage.png')}
                         style={styles.imageContainer}
                     />
-                    <View style={[{flexDirection:"cloumn"},{width:180}]}>
+                    <View style={[{ flexDirection: "cloumn" }, { width: 180 }]}>
                         <Text style={styles.DrugNameFont}>약 추가하기</Text>
                     </View>
                     <TouchableOpacity
-                        onPress={()=>{navigation.navigate('약추가하기')}}
-                        style={{marginLeft: 15}}
+                        onPress={() => { navigation.navigate('약추가하기') }}
+                        style={{ marginLeft: 15 }}
                     >
-                    <Feather name="plus-circle" size={24} color="black" />
+                        <Feather name="plus-circle" size={24} color="black" />
                     </TouchableOpacity>
                 </View>
                 <MyPage/>
@@ -262,7 +262,7 @@ const styles = StyleSheet.create({
         marginLeft: 25,
         marginRight: 15,
     },
-    DrugNameFont:{
+    DrugNameFont: {
         fontSize: 14,
         fontWeight: "500",
         textAlign: "left"
