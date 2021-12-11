@@ -8,6 +8,9 @@ import Main from './screens/main/main';
 import MyPage from './screens/mypage/mypage';
 import Reserve from './screens/calendar/calendar';
 import AddDrug from './screens/addDrug/addDrug';
+import Confirm from './screens/mypage/confirm';
+import StateAlram from './screens/mypage/stateAlarm';
+import TimeLine from './screens/mypage/timeLine';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -49,6 +52,9 @@ export default function App() {
         <Stack.Screen name="shelter" options={{ headerShown: false }} component={Signin_Complete} />
         <Stack.Screen name="main" options={{ headerShown: false }} component={Main} />
         <Stack.Screen name="약추가하기" component={AddDrug} />
+        <Stack.Screen name="공지사항" component={Confirm} />
+        <Stack.Screen name="상태알림" component={StateAlram} />
+        <Stack.Screen name="타임라인" component={TimeLine} />
       </Stack.Navigator>
     </NavigationContainer>
   );

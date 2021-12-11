@@ -75,6 +75,7 @@ export default function Main({navigation}) {
     const screenHandler = () => {
         setScreen(0)
     }
+    
     useEffect(() => {
         var date = new Date().getDate(); //Current Date
         var month = new Date().getMonth() + 1; //Current Month
@@ -196,6 +197,7 @@ export default function Main({navigation}) {
                     <Feather name="plus-circle" size={24} color="black" />
                     </TouchableOpacity>
                 </View>
+                <MyPage/>
             </ScrollView>
         </KeyboardAvoidingView>
     );
