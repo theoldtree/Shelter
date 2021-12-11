@@ -7,7 +7,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import Main from './screens/main/main';
 import MyPage from './screens/mypage/mypage';
 import Reserve from './screens/calendar/calendar';
-import Locate from './screens/location/mydrug';
+import AddDrug from './screens/addDrug/addDrug';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -48,6 +48,7 @@ export default function App() {
       <Stack.Navigator>
         <Stack.Screen name="shelter" options={{ headerShown: false }} component={Signin_Complete} />
         <Stack.Screen name="main" options={{ headerShown: false }} component={Main} />
+        <Stack.Screen name="약추가하기" component={AddDrug} />
       </Stack.Navigator>
     </NavigationContainer>
   );

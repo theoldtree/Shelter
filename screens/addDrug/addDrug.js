@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, Text, View, Dimensions, KeyboardAvoidingView, ScrollView } from 'react-native';
+import { StyleSheet, Text, View, Dimensions, KeyboardAvoidingView, ScrollView,Platform } from 'react-native';
 
-export default function Locate() {
+export default function AddDrug() {
 
     return (
         <KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : "height"} style={{ height: Dimensions.get("window").height }}>
             <ScrollView bounces={false} showsVerticalScrollIndicator={false} style={{ height: Dimensions.get("window").height }}>
                 <Text>
-                    loacate
+                    약 추가하기
                 </Text>
             </ScrollView>
         </KeyboardAvoidingView>
