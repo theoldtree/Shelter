@@ -4,7 +4,7 @@ import { StyleSheet, Text, View, Dimensions, KeyboardAvoidingView, ScrollView, P
 import { MaterialIcons } from '@expo/vector-icons';
 import NextStep from './nextStep';
 import SearchResult from './searchResult';
-import { RadioButton } from 'react-native-paper';
+import { RadioButton, TextInput } from 'react-native-paper';
 import { Picker } from '@react-native-picker/picker';
 
 
@@ -21,6 +21,7 @@ export default function AddDrug({ navigation }) {
     const [checked3, setChecked3] = useState('first');
     const [hopital, setHospital] = useState();
     const [detail, setDetail] = useState();
+    const [search, setSearch] = useState('');
 
     const SelectView = () => {
         return (
@@ -186,48 +187,68 @@ export default function AddDrug({ navigation }) {
                 <View style={[styles.header, { marginTop: 30 }]}>
                     <Text style={styles.headerText2}>진료과 선택</Text>
                 </View>
-                <View style={{justifyContent: "center", height: 100, marginTop: 10, alignItems: "center"}}>
-                <Picker
-                    selectedValue={hopital}
-                    onValueChange={(itemValue, itemIndex) =>
-                        setHospital(itemValue)
-                    }
-                    style={{ height: 40, width: 328, margin: 3, borderColor: "#cccccc"}}
-                >
-                    <Picker.Item label="가정의학과" value="가정" />
-                    <Picker.Item label="내과" value="내과" />
-                    <Picker.Item label="마취통증의학과" value="마취" />
-                    <Picker.Item label="비뇨기과" value="비뇨" />
-                    <Picker.Item label="산부인과" value="산부" />
-                    <Picker.Item label="신경과" value="신경" />
-                    <Picker.Item label="소아청소년의학과" value="소아" />
-                    <Picker.Item label="안과" value="안과" />
-                    <Picker.Item label="영상의학과" value="영상" />
-                    <Picker.Item label="외과" value="외과" />
-                    <Picker.Item label="응급의학과" value="응급" />
-                    <Picker.Item label="이비인후과" value="이비" />
-                    <Picker.Item label="임상약리학과" value="임상" />
-                    <Picker.Item label="정신건강의학과" value="정신" />
-                    <Picker.Item label="직업환경의학과" value="직업" />
-                    <Picker.Item label="치과" value="치과" />
-                    <Picker.Item label="피부과" value="피부" />
-                    <Picker.Item label="핵의학과" value="핵의" />
-                </Picker><Picker
-                    selectedValue={detail}
-                    onValueChange={(itemValue, itemIndex) =>
-                        setDetail(itemValue)
-                    }
-                    style={{ height: 40, width: 328, margin: 3, borderColor: "#cccccc"}}
-                >
-                    <Picker.Item label="간담췌외과" value="간담" />
-                    <Picker.Item label="간이식/간담도외과" value="간이" />
-                    <Picker.Item label="갑상선내분비외과" value="갑상" />
-                    <Picker.Item label="구강악안면외과" value="구강" />
-                    <Picker.Item label="내분비외과" value="내분" />
-                    <Picker.Item label="대장항문외과" value="대장" />
-                    <Picker.Item label="두경부외과" value="두경" />
-                    <Picker.Item label="성형외과" value="성형" />
-                </Picker>
+                <View style={{ justifyContent: "center", height: 100, marginTop: 10, alignItems: "center" }}>
+                    <Picker
+                        selectedValue={hopital}
+                        onValueChange={(itemValue, itemIndex) =>
+                            setHospital(itemValue)
+                        }
+                        style={{ height: 40, width: 328, margin: 3, borderColor: "#cccccc" }}
+                    >
+                        <Picker.Item label="가정의학과" value="가정" />
+                        <Picker.Item label="내과" value="내과" />
+                        <Picker.Item label="마취통증의학과" value="마취" />
+                        <Picker.Item label="비뇨기과" value="비뇨" />
+                        <Picker.Item label="산부인과" value="산부" />
+                        <Picker.Item label="신경과" value="신경" />
+                        <Picker.Item label="소아청소년의학과" value="소아" />
+                        <Picker.Item label="안과" value="안과" />
+                        <Picker.Item label="영상의학과" value="영상" />
+                        <Picker.Item label="외과" value="외과" />
+                        <Picker.Item label="응급의학과" value="응급" />
+                        <Picker.Item label="이비인후과" value="이비" />
+                        <Picker.Item label="임상약리학과" value="임상" />
+                        <Picker.Item label="정신건강의학과" value="정신" />
+                        <Picker.Item label="직업환경의학과" value="직업" />
+                        <Picker.Item label="치과" value="치과" />
+                        <Picker.Item label="피부과" value="피부" />
+                        <Picker.Item label="핵의학과" value="핵의" />
+                    </Picker><Picker
+                        selectedValue={detail}
+                        onValueChange={(itemValue, itemIndex) =>
+                            setDetail(itemValue)
+                        }
+                        style={{ height: 40, width: 328, margin: 3, borderColor: "#cccccc" }}
+                    >
+                        <Picker.Item label="간담췌외과" value="간담" />
+                        <Picker.Item label="간이식/간담도외과" value="간이" />
+                        <Picker.Item label="갑상선내분비외과" value="갑상" />
+                        <Picker.Item label="구강악안면외과" value="구강" />
+                        <Picker.Item label="내분비외과" value="내분" />
+                        <Picker.Item label="대장항문외과" value="대장" />
+                        <Picker.Item label="두경부외과" value="두경" />
+                        <Picker.Item label="성형외과" value="성형" />
+                    </Picker>
+                </View>
+                <View style={[styles.header, { marginTop: 20 }]}>
+                    <Text style={[styles.headerText, { margin: 24, fontSize: 24 }]}>약 이름 검색</Text>
+                    <View style={styles.textInput}>
+                        <TextInput
+                            placeholder="제품명 또는 약 이름을 검색해보세요."
+                            style={{backgroundColor: "rgba(255,255,255,0)", width: 240, height:40, marginLeft: 15, fontSize: 14}}
+                            onChangeText={setSearch}
+                            vlaue={search}
+                        />
+                        <TouchableOpacity
+                            onPress={()=>console.log(search)}
+                        >
+                            <Image
+                                style={styles.searchImage}
+                                source={require('../../assets/image/icon/search.png')}
+                            />
+                        </TouchableOpacity>
+                    </View>
+
                 </View>
             </ScrollView>
         </KeyboardAvoidingView>
@@ -295,5 +316,19 @@ const styles = StyleSheet.create({
         color: "rgba(0, 0, 0, 0.698)",
         fontSize: 18,
         fontWeight: "500",
+    },
+    searchImage: {
+        width: 24,
+        height: 24,
+        marginLeft: 20,
+    },
+    textInput:{
+        flexDirection: "row", 
+        alignItems: "center", 
+        backgroundColor: "#eeeeee",
+        borderRadius: 20,
+        width:318,
+        marginLeft: 18,
+        marginBottom: 30,
     }
 })
