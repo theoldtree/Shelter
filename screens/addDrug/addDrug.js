@@ -172,6 +172,16 @@ export default function AddDrug({ navigation }) {
                 <Text style={[styles.headerSubText, { fontSize: 10, marginTop: 10 }]}   >
                     *기타 - 점안액, 연고, 파우치 등 알약 제형이 아닌 다양한 형태의 의약품
                 </Text>
+                <View style={[styles.header,{marginTop: 30}]}>
+                    <Text style={[styles.headerText, { marginTop: 50, }]}>약을 처방받은</Text>
+                    <Text style={[styles.headerText, { color: "#26c7d9" }]}>진료과를 선택<Text style={[styles.headerText, { marginLeft: 0 }]}>해주세요</Text></Text>
+                    <Text style={styles.headerSubText}   >
+                        진료과를 설정하시면 캘린더에 자동으로 반영됩니다.
+                    </Text>
+                </View>
+                <View style={[styles.header,{marginTop: 30}]}>
+                    <Text style={styles.headerText2}>진료과 선택</Text>
+                </View>
             </ScrollView>
         </KeyboardAvoidingView>
     );
@@ -231,5 +241,11 @@ const styles = StyleSheet.create({
     image: {
         width: 61,
         height: 69
+    },
+    headerText2:{
+        margin: 24,
+        color: "rgba(0, 0, 0, 0.698)",
+        fontSize: 18,
+        fontWeight: "500",
     }
 })
