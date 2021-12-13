@@ -9,19 +9,10 @@ export default function NextStep({navigation}) {
         <KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : "height"} style={{ height: Dimensions.get("window").height }}>
             <ScrollView bounces={false} showsVerticalScrollIndicator={false} style={{ height: Dimensions.get("window").height, backgroundColor:"white" }}>
                 <View style={{ flexDirection: "row", alignItems: "center", marginTop: 20 }}>
-                    <TouchableOpacity
-                        onPress={() => { navigation.goBack(); }}
-                        style={{ marginLeft: 15}}
-                    >
-                        <MaterialIcons name="keyboard-arrow-left" size={28} color="black" />
-                    </TouchableOpacity>
+
                     <Text style={styles.titleText}>
                         약 추가하기
                     </Text>
-                    <Button
-                        title="검색단계로 넘어가기"
-                        onPress={navigation.navigate("마지막단계")}
-                    />
                 </View>
             </ScrollView>
         </KeyboardAvoidingView>

@@ -9,14 +9,8 @@ export default function SearchResult({navigation}) {
         <KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : "height"} style={{ height: Dimensions.get("window").height }}>
             <ScrollView bounces={false} showsVerticalScrollIndicator={false} style={{ height: Dimensions.get("window").height, backgroundColor:"white" }}>
                 <View style={{ flexDirection: "row", alignItems: "center", marginTop: 20 }}>
-                    <TouchableOpacity
-                        onPress={() => { navigation.navigate("다음단계") }}
-                        style={{ marginLeft: 15}}
-                    >
-                        <MaterialIcons name="keyboard-arrow-left" size={28} color="black" />
-                    </TouchableOpacity>
                     <Text style={styles.titleText}>
-                        약 추가하기
+                        약 검색하기
                     </Text>
                 </View>
             </ScrollView>
