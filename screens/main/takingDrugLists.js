@@ -87,7 +87,7 @@ export default function TakingDrugLists({ drugInfos }) {
                         return (
                             <View style={{ flexDirection: "row", alignItems: "center", width: 360, }}>
                                 <DrugImage drug={drug} />
-                                <View style={[{flexDirection:"cloumn"},{width:180, justifyContent: "center"}]}>
+                                <View style={[{flexDirection:"column"},{width:180, justifyContent: "center"}]}>
                                     <Text style={styles.CompanyNameFont}>{drug.company}</Text>
                                     <Text style={styles.DrugNameFont}>{drug.name}</Text>
                                 </View>

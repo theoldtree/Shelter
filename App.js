@@ -53,9 +53,9 @@ export default function App() {
       <Stack.Navigator>
         <Stack.Screen name="shelter" options={{ headerShown: false }} component={Signin_Complete} />
         <Stack.Screen name="main" options={{ headerShown: false }} component={Main} />
-        <Stack.Screen name="약추가하기" options={{ headerShown: false }} component={AddDrug} />
+        <Stack.Screen name="약추가하기" component={AddDrug} />
         <Stack.Screen name="다음단계" options={{ headerShown: false }} component={NextStep} />
-        <Stack.Screen name="마지막단계" options={{ headerShown: false }} component={SearchResult} />
+        <Stack.Screen name="검색결과" component={SearchResult} />
         <Stack.Screen name="공지사항" options={{ headerShown: false }} component={Confirm} />
         <Stack.Screen name="상태알림" options={{ headerShown: false }} component={StateAlram} />
         <Stack.Screen name="타임라인" options={{ headerShown: false }} component={TimeLine} />

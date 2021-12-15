@@ -6,6 +6,7 @@ import NextStep from './nextStep';
 import SearchResult from './searchResult';
 import { RadioButton, TextInput } from 'react-native-paper';
 import { Picker } from '@react-native-picker/picker';
+import axios from 'axios';
 
 
 export default function AddDrug({ navigation }) {
@@ -21,8 +22,9 @@ export default function AddDrug({ navigation }) {
     const [checked3, setChecked3] = useState('first');
     const [hopital, setHospital] = useState();
     const [detail, setDetail] = useState();
+    const [isSearched, setIsSearced] = useState(0);
     const [search, setSearch] = useState('');
-
+   
     const SelectView = () => {
         return (
             (checked === 'first') ?
@@ -93,20 +95,14 @@ export default function AddDrug({ navigation }) {
         )
     }
 
+    const SearchHandler = () => {
+        var uri = 'http://apis.data.go.kr/1471000/DrbEasyDrugInfoService/getDrbEasyDrugList?serviceKey=CtrWwOsHHkcLlZP8TidT%2FvMTSwjj9o3cs7%2B2plhkNAlKSqnqIX%2Bl9CvZXz%2BgVp8JNvv7Wh1Newh%2Fs2Ky8q0Srw%3D%3D&itemName='+search+'&type=json'
+        navigation.navigate("검색결과",{uri})
+    }
+
     return (
         <KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : "height"} style={{ height: Dimensions.get("window").height }}>
             <ScrollView bounces={false} showsVerticalScrollIndicator={false} style={{ height: Dimensions.get("window").height, backgroundColor: "white" }}>
-                <View style={{ flexDirection: "row", alignItems: "center", marginTop: 20 }}>
-                    <TouchableOpacity
-                        onPress={() => { navigation.goBack(); }}
-                        style={{ marginLeft: 15 }}
-                    >
-                        <MaterialIcons name="keyboard-arrow-left" size={28} color="black" />
-                    </TouchableOpacity>
-                    <Text style={styles.titleText}>
-                        약 추가하기
-                    </Text>
-                </View>
                 <View style={styles.header}>
                     <Text style={[styles.headerText, { marginTop: 50, }]}>복용하는 약이</Text>
                     <Text style={[styles.headerText, { color: "#26c7d9" }]}>처방약인가요<Text style={[styles.headerText, { marginLeft: 0 }]}>?</Text></Text>
@@ -236,11 +232,11 @@ export default function AddDrug({ navigation }) {
                         <TextInput
                             placeholder="제품명 또는 약 이름을 검색해보세요."
                             style={{backgroundColor: "rgba(255,255,255,0)", width: 240, height:40, marginLeft: 15, fontSize: 14}}
+                            value={search}
                             onChangeText={setSearch}
-                            vlaue={search}
                         />
                         <TouchableOpacity
-                            onPress={()=>console.log(search)}
+                            onPress={SearchHandler}
                         >
                             <Image
                                 style={styles.searchImage}
@@ -248,7 +244,6 @@ export default function AddDrug({ navigation }) {
                             />
                         </TouchableOpacity>
                     </View>
-
                 </View>
             </ScrollView>
         </KeyboardAvoidingView>
@@ -307,6 +302,7 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
     image: {
+        marginTop: 20,
         width: 61,
         height: 69
     },
@@ -329,6 +325,6 @@ const styles = StyleSheet.create({
         borderRadius: 20,
         width:318,
         marginLeft: 18,
-        marginBottom: 30,
+        marginBottom: 100,
     }
 })

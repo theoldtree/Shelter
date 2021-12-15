@@ -187,7 +187,7 @@ export default function Main({ navigation }) {
                         source={require('../../assets/addDrugImage.png')}
                         style={styles.imageContainer}
                     />
-                    <View style={[{ flexDirection: "cloumn" }, { width: 180 }]}>
+                    <View style={[{ flexDirection: "column" }, { width: 180 }]}>
                         <Text style={styles.DrugNameFont}>약 추가하기</Text>
                     </View>
                     <TouchableOpacity
