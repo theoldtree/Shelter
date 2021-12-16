@@ -13,6 +13,7 @@ import StateAlram from './screens/mypage/stateAlarm';
 import TimeLine from './screens/mypage/timeLine';
 import NextStep from './screens/addDrug/nextStep';
 import SearchResult from './screens/addDrug/searchResult';
+import DrugInfo from './screens/addDrug/drugInfo';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -59,6 +60,7 @@ export default function App() {
         <Stack.Screen name="공지사항" options={{ headerShown: false }} component={Confirm} />
         <Stack.Screen name="상태알림" options={{ headerShown: false }} component={StateAlram} />
         <Stack.Screen name="타임라인" options={{ headerShown: false }} component={TimeLine} />
+        <Stack.Screen name="약 추가하기" component={DrugInfo}/>
       </Stack.Navigator>
     </NavigationContainer>
   );

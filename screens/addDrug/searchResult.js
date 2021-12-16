@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View, Dimensions, ScrollView, Platform, TouchableOpacity, Button, KeyboardAvoidingView } from 'react-native';
 import axios from 'axios';
 
-export default function SearchResult({ route }) {
+export default function SearchResult({ route, navigation }) {
 
 
     const [datas, setDatas] = useState(null);
@@ -40,13 +40,7 @@ export default function SearchResult({ route }) {
     if (loading) return <Text>로딩중..</Text>;
     if (error) return <Text>에러가 발생했습니다</Text>;
 
-    const renderItem = (drug) => {
-        return (
-            <View>
-                <Text>{drug.it}</Text>
-            </View>
-        );
-    }
+
     return (
         <KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : "height"} style={{ height: Dimensions.get("window").height }}>
             <ScrollView bounces={false} showsVerticalScrollIndicator={false} style={{ height: Dimensions.get("window").height, backgroundColor: "white" }}>
@@ -76,9 +70,14 @@ export default function SearchResult({ route }) {
                 {
                     status ?
                         (
+                            list===undefined?
+                            <View>
+                                <Text style={{ fontSize: 20, marginLeft: 20 }}>검색된 데이터가 없습니다</Text>
+                            </View>:
                             list.map(drug => {
                                 return (
-                                    <TouchableOpacity>
+                                    <TouchableOpacity
+                                    >
                                         <View style={styles.drugContainer}>
                                             <Text style={{ fontSize: 10, marginTop: 6 }}>
                                                 {drug.entpName}
@@ -91,7 +90,7 @@ export default function SearchResult({ route }) {
                                 );
                             })
                         ) :
-                        (
+                        (   
                             <View></View>
                         )
                 }
