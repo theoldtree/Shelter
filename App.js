@@ -1,4 +1,3 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View, Dimensions } from 'react-native';
 import Signin_Complete from './screens/signin/signin_complete';
@@ -7,8 +6,14 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
 import Main from './screens/main/main';
 import MyPage from './screens/mypage/mypage';
-import Reserve from './screens/reserve/reserve';
-import Locate from './screens/location/mydrug';
+import Reserve from './screens/calendar/calendar';
+import AddDrug from './screens/addDrug/addDrug';
+import Confirm from './screens/mypage/confirm';
+import StateAlram from './screens/mypage/stateAlarm';
+import TimeLine from './screens/mypage/timeLine';
+import NextStep from './screens/addDrug/nextStep';
+import SearchResult from './screens/addDrug/searchResult';
+import DrugInfo from './screens/addDrug/drugInfo';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -49,6 +54,13 @@ export default function App() {
       <Stack.Navigator>
         <Stack.Screen name="shelter" options={{ headerShown: false }} component={Signin_Complete} />
         <Stack.Screen name="main" options={{ headerShown: false }} component={Main} />
+        <Stack.Screen name="약추가하기" component={AddDrug} />
+        <Stack.Screen name="다음단계" options={{ headerShown: false }} component={NextStep} />
+        <Stack.Screen name="검색결과" component={SearchResult} />
+        <Stack.Screen name="공지사항" options={{ headerShown: false }} component={Confirm} />
+        <Stack.Screen name="상태알림" options={{ headerShown: false }} component={StateAlram} />
+        <Stack.Screen name="타임라인" options={{ headerShown: false }} component={TimeLine} />
+        <Stack.Screen name="약 추가하기" component={DrugInfo}/>
       </Stack.Navigator>
     </NavigationContainer>
   );

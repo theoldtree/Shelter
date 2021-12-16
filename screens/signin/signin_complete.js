@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, Dimensions,TouchableOpacity } from 'react-nativ
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import TransLargeBlueButton from '../../Components/buttons'
+import AddDrug from '../addDrug/addDrug';
 
 export default function Signin_Complete({navigation}) {
 
