@@ -97,7 +97,7 @@ export default function AddDrug({ navigation }) {
 
     const SearchHandler = () => {
         var uri = 'http://apis.data.go.kr/1471000/DrbEasyDrugInfoService/getDrbEasyDrugList?serviceKey=CtrWwOsHHkcLlZP8TidT%2FvMTSwjj9o3cs7%2B2plhkNAlKSqnqIX%2Bl9CvZXz%2BgVp8JNvv7Wh1Newh%2Fs2Ky8q0Srw%3D%3D&itemName='+search+'&type=json'
-        navigation.navigate("검색결과",{uri})
+        navigation.navigate("검색결과",{search, uri})
     }
 
     return (
