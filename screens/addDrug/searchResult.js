@@ -70,13 +70,14 @@ export default function SearchResult({ route, navigation }) {
                 {
                     status ?
                         (
-                            list===undefined?
+                            (list===undefined)|(list===null)?
                             <View>
                                 <Text style={{ fontSize: 20, marginLeft: 20 }}>검색된 데이터가 없습니다</Text>
                             </View>:
                             list.map(drug => {
                                 return (
                                     <TouchableOpacity
+                                        onPress={()=>navigation.push("약 추가하기",{drug})}
                                     >
                                         <View style={styles.drugContainer}>
                                             <Text style={{ fontSize: 10, marginTop: 6 }}>

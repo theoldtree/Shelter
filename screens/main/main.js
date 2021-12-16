@@ -13,7 +13,7 @@ import TakingDrugLists from './takingDrugLists';
 const BEFORE_SCREEN = 0;
 const AFTER_SCREEN = 1;
 const HEIGHT = Dimensions.get("window").height;
-const WIDTH = Dimensions.get("window").height;
+const WIDTH = Dimensions.get("window").width;
 
 export default function Main({ navigation }) {
 
@@ -191,7 +191,7 @@ export default function Main({ navigation }) {
                         <Text style={styles.DrugNameFont}>약 추가하기</Text>
                     </View>
                     <TouchableOpacity
-                        onPress={() => { navigation.navigate('약추가하기') }}
+                        onPress={() => { navigation.push('약추가하기') }}
                         style={{ marginLeft: 15 }}
                     >
                         <Feather name="plus-circle" size={24} color="black" />
